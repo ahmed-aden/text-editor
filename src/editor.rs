@@ -44,7 +44,7 @@ impl Editor {
             print!("Goodbye.\r\n");
         } else {
             Self::draw_rows()?;
-            Terminal::move_cursor_to(0, 0);
+            Terminal::move_cursor_to(0, 0)?;
         }
         Ok(())
     }
@@ -67,7 +67,7 @@ impl Editor {
         let height = Terminal::size()?.1;
         for current_row in 0..height {
             print!("~");
-            if current_row  + 1 > height {
+            if current_row  + 1 < height {
                 print!("\r\n");
             }
         }
